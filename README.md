@@ -1,87 +1,167 @@
-# Laravel Coffee Shop Demo
+# ![Banner](banner.png)
 
-This repository contains a practice Laravel project built as part of
-daily exercises.\
-It showcases a **Coffee Shop Menu** with categories and products using
-Laravel 12, MVC structure, SQLite, migrations, Eloquent ORM, and Blade
-templates.
+# ☕ Laravel Practice – Coffee Shop Menu  
+### **Daily Laravel Learning Repository**
 
-## 🚀 Features
+This repository documents my daily Laravel practice.  
+It includes a complete **Coffee Shop Menu** project showcasing:
 
--   Laravel 12 project structure\
--   Product & Category models with relationships\
--   Database migrations\
--   Coffee shop menu with real items and prices\
--   Blade view rendering dynamic menu sections\
--   SQLite database\
--   Simple seeding through `php artisan tinker`
+- Laravel 12 MVC structure  
+- Controllers, Models, Views  
+- Migrations & Eloquent ORM  
+- SQLite database  
+- Category → Product (1-to-many)  
+- Blade template rendering  
+- Git usage & daily commits  
 
-## 📂 Project Structure (Key Parts)
+---
 
-    app/
-     ├── Models/
-     │    ├── Product.php
-     │    └── Category.php
-     └── Http/
-          └── Controllers/
-                └── ProductController.php
+# 📘 Project Purpose
 
-    resources/
-     └── views/
-           └── products/
-                 └── index.blade.php
+My tutor will review this GitHub repo to track:
 
-## 📦 Database Schema
+- My daily progress  
+- Code changes  
+- Commit history  
+- Learning outcomes  
 
-### Categories Table
+This README contains project documentation + diagrams for clear understanding.
 
-  Column       Type
-  ------------ -----------
-  id           integer
-  name         string
-  created_at   timestamp
-  updated_at   timestamp
+---
 
-### Products Table
+# 🎨 Project Banner
 
-  Column        Type
-  ------------- -------------
-  id            integer
-  name          string
-  price         decimal
-  description   text
-  category_id   foreign key
-  created_at    timestamp
-  updated_at    timestamp
+The banner above is used for identification on GitHub Pages and README.
 
-## 🔧 Installation & Running
+---
 
-    composer install
-    php artisan migrate
-    php artisan serve
+# 🗂️ Project Structure
 
-Visit:
+```
+app/
+ ├── Models/
+ │    ├── Product.php
+ │    └── Category.php
+ └── Http/Controllers/
+       └── ProductController.php
 
-    http://127.0.0.1:8000/products
+resources/views/products/
+ └── index.blade.php
 
-## 🌱 Sample Data (via Tinker)
+database/migrations/
+ ├── create_categories_table.php
+ └── create_products_table.php
 
-Example seeding:
+routes/
+ └── web.php
+```
 
-    $coffee = \App\Models\Category::create(['name' => 'Coffee']);
-    \App\Models\Product::create([
-        'name' => 'Cappuccino',
-        'price' => 4.5,
-        'description' => 'Rich espresso with steamed milk foam',
-        'category_id' => $coffee->id
-    ]);
+---
 
-## 📘 Purpose
+# 📦 Database ER Diagram
 
-This project is part of a daily coding practice routine.\
-Your tutor can check all commits, progress, and code history directly in
-this repository.
+![ER Diagram](er_diagram.png)
 
-## 📜 License
+```
+Category (1) ----- (many) Product
+```
+
+### **Category Table**
+- id  
+- name  
+- timestamps  
+
+### **Product Table**
+- id  
+- name  
+- price  
+- description  
+- category_id  
+- timestamps  
+
+---
+
+# 🚀 How to Run the Project
+
+### 1. Install dependencies
+```
+composer install
+```
+
+### 2. Run migrations
+```
+php artisan migrate
+```
+
+### 3. Launch server
+```
+php artisan serve
+```
+
+Access the project:
+
+👉 http://127.0.0.1:8000/products
+
+---
+
+# 🌱 How Data Was Seeded (via Tinker)
+
+Example:
+
+```
+$coffee = \App\Models\Category::create(['name' => 'Coffee']);
+
+\App\Models\Product::create([
+  'name' => 'Cappuccino',
+  'price' => 4.5,
+  'description' => 'Espresso with steamed milk foam',
+  'category_id' => $coffee->id
+]);
+```
+
+---
+
+# 📝 Daily Commit Templates
+
+Use one of the following formats when you push to GitHub each day:
+
+### Template 1 — Standard
+```
+[Daily Practice - YYYY/MM/DD]
+- Updated Laravel code
+- Added features
+- Improved documentation
+```
+
+### Template 2 — Detailed
+```
+[Daily Practice Log - YYYY/MM/DD]
+✔ Created/updated: controllers, models, migrations
+✔ Practiced Blade & routing
+✔ Seeded new data
+✔ Updated README
+```
+
+### Template 3 — Short
+```
+Daily update: Laravel practice project improved.
+```
+
+### Template 4 — Professional Git style
+```
+feat: daily learning update (YYYY-MM-DD)
+```
+
+---
+
+# 📤 How Tutor Can Track My Work
+
+Your tutor can check the commit history:
+
+🔗 https://github.com/power20250520/Laravel-Practice/commits/main
+
+---
+
+# 📜 License
 
 MIT License
